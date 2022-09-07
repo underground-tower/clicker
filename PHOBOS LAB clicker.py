@@ -163,7 +163,7 @@ def WORK_CLIC():
 
 	conlroleXY=chekXY() 
 	BREKER=True
-	while BREKER:
+	while BREKER and noTouch(conlroleXY,chekXY()):
 		inDEX=0
 		time.sleep(0.01)
 		for node in ARAY_MALE:
@@ -188,7 +188,7 @@ def WORK_CLIC():
 				SFKtim=0
 				for clxy in node["CLICK_XY"]:
 
-					conlroleXY=chekXY()
+					
 					time.sleep(node["SFK"][SFKtim])
 					if(noTouch(conlroleXY,chekXY()) is False):
 						BREKER=False
@@ -197,9 +197,9 @@ def WORK_CLIC():
 					print("clk: ",clxy," NODE: ",inDEX,"  delay: ",node["SFK"][SFKtim])
 					pyautogui.moveTo(clxy[0],clxy[1], duration=0.2)	
 					pyautogui.click(clicks=1,interval=1)
-
 					SFKtim+=1
-
+					
+					conlroleXY=chekXY()
 
 					
 				
